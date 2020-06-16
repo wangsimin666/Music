@@ -3,15 +3,15 @@ package com.example.julangmusic.util;
 import android.content.Context;
 import android.content.res.TypedArray;
 
+/**
+ *
+ * @ClassName:     CustomAttrValueUtil
+ * @Description:   自定义属性值工具
+ * @Author:        ydl
+ * @date          2020/5/18
+ *
+ */
 public class CustomAttrValueUtil {
-    /**
-     * 动态获取当前主题中的自定义颜色属性值
-     *
-     * @param attr
-     *         e.g R.attr.colorAccent
-     * @param defaultColor
-     *         默认颜色值
-     */
     public static int getAttrColorValue(int attr, int defaultColor, Context context) {
 
         int[] attrsArray = {attr};
