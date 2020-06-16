@@ -24,9 +24,15 @@ import com.example.julangmusic.entity.MusicInfo;
 import com.example.julangmusic.entity.PlayListInfo;
 import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
 
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @ClassName:     AddPlaylistWindow
+ * @Description:   歌曲添加歌单的窗口
+ * @Author:        ydl
+ * @date          2020/5/12
+ */
 public class AddPlaylistWindow extends PopupWindow {
 
     private View view;
@@ -47,14 +53,14 @@ public class AddPlaylistWindow extends PopupWindow {
         initView();
     }
 
-    private void initView(){
+    private void initView() {
         this.view = LayoutInflater.from(activity).inflate(R.layout.pop_add_playlist, null);
         // 设置视图
         this.setContentView(this.view);
         // 设置弹出窗体的宽和高,不设置显示不出来
         Point size = new Point();
         activity.getWindowManager().getDefaultDisplay().getSize(size);
-        int height = (int)(size.y * 0.6);
+        int height = (int) (size.y * 0.6);
         this.setHeight(height);
         this.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
 
@@ -94,8 +100,8 @@ public class AddPlaylistWindow extends PopupWindow {
             public void onClick(View v) {
                 //添加歌单
                 final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                View view = LayoutInflater.from(activity).inflate(R.layout.dialog_create_playlist,null);
-                final EditText playlistEt = (EditText)view.findViewById(R.id.dialog_playlist_name_et);
+                View view = LayoutInflater.from(activity).inflate(R.layout.dialog_create_playlist, null);
+                final EditText playlistEt = (EditText) view.findViewById(R.id.dialog_playlist_name_et);
                 builder.setView(view);
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
@@ -119,6 +125,13 @@ public class AddPlaylistWindow extends PopupWindow {
         });
     }
 
+    /**
+     *
+     * @ClassName:     AddPlaylistWindow
+     * @Description:   适配器
+     * @Author:        ydl
+     *
+     */
     private class Adapter extends BaseAdapter {
 
         @Override
@@ -154,18 +167,19 @@ public class AddPlaylistWindow extends PopupWindow {
             holder.swipView.setSwipeEnable(false);
 
             //展现已有的歌单列表
-            final PlayListInfo playListInfo = dataList.get(position); 
+            final PlayListInfo playListInfo = dataList.get(position);
             holder.listName.setText(playListInfo.getName());
             holder.listCount.setText(playListInfo.getCount() + "首");
 
             holder.contentLl.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(dbManager.isExistPlaylist(playListInfo.getId(),musicInfo.getId())){
-                        Toast.makeText(activity,"该歌单已存在该歌曲",Toast.LENGTH_SHORT).show();
-                    }else {
-                        dbManager.addToPlaylist(playListInfo.getId(),musicInfo.getId());
-                        Toast.makeText(activity,"添加到歌单成功",Toast.LENGTH_SHORT).show();
+                    //判断歌曲是否在歌单内
+                    if (dbManager.isExistPlaylist(playListInfo.getId(), musicInfo.getId())) {
+                        Toast.makeText(activity, "该歌单已存在该歌曲", Toast.LENGTH_SHORT).show();
+                    } else {
+                        dbManager.addToPlaylist(playListInfo.getId(), musicInfo.getId());
+                        Toast.makeText(activity, "添加到歌单成功", Toast.LENGTH_SHORT).show();
                     }
                     dismiss();
                 }
@@ -175,6 +189,7 @@ public class AddPlaylistWindow extends PopupWindow {
             return convertView;
         }
 
+        //更新列表
         public void updateDataList() {
             List<PlayListInfo> playListInfos;
             playListInfos = dbManager.getMyPlayList();
