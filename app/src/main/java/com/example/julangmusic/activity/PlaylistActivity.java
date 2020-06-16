@@ -15,7 +15,6 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -37,14 +36,22 @@ import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
 
 import java.util.List;
 
-public class PlaylistActivity extends PlayBarBaseActivity{
+/**
+ * @author ydl
+ * @ClassName: PlaylistActivity
+ * @Description 播放列表的Activity
+ * @date 2020/5/12
+ */
+
+
+public class PlaylistActivity extends PlayBarBaseActivity {
     private static final String TAG = "PlaylistActivity";
     private RecyclerView recyclerView;
     private PlaylistAdapter playlistAdapter;
     private List<MusicInfo> musicInfoList;
     private PlayListInfo playListInfo;
     private Toolbar toolbar;
-    private TextView noneTv;//没有歌单时现实的TextView
+    private TextView noneTv;
     private ImageView bgIv;
     private DBManager dbManager;
     private UpdateReceiver mReceiver;
@@ -53,6 +60,7 @@ public class PlaylistActivity extends PlayBarBaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playlist);
+        //加载背景图片
         loadBingPic();
         playListInfo = getIntent().getParcelableExtra("playlistInfo");
         toolbar = findViewById(R.id.activity_playlist_toolbar);
@@ -62,7 +70,9 @@ public class PlaylistActivity extends PlayBarBaseActivity{
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
         CollapsingToolbarLayout mCollapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
+        //设置歌单名
         mCollapsingToolbarLayout.setTitle(playListInfo.getName());
+        //加载歌曲的列表
         dbManager = DBManager.getInstance(this);
         musicInfoList = dbManager.getMusicListByPlaylist(playListInfo.getId());
         initView();
@@ -74,22 +84,23 @@ public class PlaylistActivity extends PlayBarBaseActivity{
         super.onResume();
     }
 
-    private void initView(){
+    private void initView() {
         recyclerView = findViewById(R.id.activity_playlist_rv);
-        playlistAdapter = new PlaylistAdapter(this,playListInfo,musicInfoList);
+        playlistAdapter = new PlaylistAdapter(this, playListInfo, musicInfoList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(playlistAdapter);
         noneTv = findViewById(R.id.activity_playlist_none_tv);
-        if (playListInfo.getCount() == 0){
+        //设置没有歌单时的view
+        if (playListInfo.getCount() == 0) {
             recyclerView.setVisibility(View.GONE);
             noneTv.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             recyclerView.setVisibility(View.VISIBLE);
             noneTv.setVisibility(View.GONE);
         }
 
-
+        //监听菜单的点击和删除
         playlistAdapter.setOnItemClickListener(new PlaylistAdapter.OnItemClickListener() {
             @Override
             public void onOpenMenuClick(int position) {
@@ -103,11 +114,11 @@ public class PlaylistActivity extends PlayBarBaseActivity{
                 final int curId = musicInfo.getId();
                 final int musicId = MyMusicUtil.getIntShared(Constant.KEY_ID);
                 //从列表移除
-                int ret = dbManager.removeMusicFromPlaylist(musicInfo.getId(),playListInfo.getId());
-                if (ret > 0){
-                    Toast.makeText(PlaylistActivity.this,"删除成功",Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(PlaylistActivity.this,"删除失败",Toast.LENGTH_SHORT).show();
+                int ret = dbManager.removeMusicFromPlaylist(musicInfo.getId(), playListInfo.getId());
+                if (ret > 0) {
+                    Toast.makeText(PlaylistActivity.this, "删除成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(PlaylistActivity.this, "删除失败", Toast.LENGTH_SHORT).show();
                 }
                 if (curId == musicId) {
                     //移除的是当前播放的音乐
@@ -140,13 +151,18 @@ public class PlaylistActivity extends PlayBarBaseActivity{
 
     }
 
+    /**
+     * 菜单弹出方法
+     *
+     * @param musicInfo
+     */
     public void showPopFormBottom(MusicInfo musicInfo) {
-        MusicPopMenuWindow menuPopupWindow = new MusicPopMenuWindow(PlaylistActivity.this,musicInfo,findViewById(R.id.activity_playlist),Constant.ACTIVITY_MYLIST);
-//      设置Popupwindow显示位置（从底部弹出）
-        menuPopupWindow.showAtLocation(findViewById(R.id.activity_playlist), Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
+        MusicPopMenuWindow menuPopupWindow = new MusicPopMenuWindow(PlaylistActivity.this, musicInfo, findViewById(R.id.activity_playlist), Constant.ACTIVITY_MYLIST);
+        //设置Popupwindow显示位置（从底部弹出）
+        menuPopupWindow.showAtLocation(findViewById(R.id.activity_playlist), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
         WindowManager.LayoutParams params = PlaylistActivity.this.getWindow().getAttributes();
         //当弹出Popupwindow时，背景变半透明
-        params.alpha=0.7f;
+        params.alpha = 0.7f;
         getWindow().setAttributes(params);
 
         //设置Popupwindow关闭监听，当Popupwindow关闭，背景恢复1f
@@ -154,7 +170,7 @@ public class PlaylistActivity extends PlayBarBaseActivity{
             @Override
             public void onDismiss() {
                 WindowManager.LayoutParams params = getWindow().getAttributes();
-                params.alpha=1f;
+                params.alpha = 1f;
                 getWindow().setAttributes(params);
             }
         });
@@ -173,7 +189,7 @@ public class PlaylistActivity extends PlayBarBaseActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
-        if(item.getItemId() == android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             this.finish();
         }
         return true;
@@ -187,6 +203,9 @@ public class PlaylistActivity extends PlayBarBaseActivity{
     }
 
 
+    /**
+     * 设置广播监听
+     */
     private void register() {
         try {
             if (mReceiver != null) {
@@ -196,40 +215,46 @@ public class PlaylistActivity extends PlayBarBaseActivity{
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(PlayerManagerReceiver.ACTION_UPDATE_UI_ADAPTER);
             this.registerReceiver(mReceiver, intentFilter);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * 取消广播监听
+     */
     private void unRegister() {
         try {
             if (mReceiver != null) {
                 this.unregisterReceiver(mReceiver);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private class UpdateReceiver extends BroadcastReceiver {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            playlistAdapter.notifyDataSetChanged();
-        }
-    }
-
-    private void loadBingPic(){
+    /**
+     * 加载背景图片
+     */
+    private void loadBingPic() {
         try {
             bgIv = findViewById(R.id.playlist_head_bg_iv);
+            //获取bing的图片
             String bingPic = MyMusicUtil.getBingShared();
             if (bingPic != null) {
                 Glide.with(this).load(bingPic).into(bgIv);
             } else {
                 bgIv.setImageResource(R.drawable.bg_playlist);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private class UpdateReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            playlistAdapter.notifyDataSetChanged();
         }
     }
 }
