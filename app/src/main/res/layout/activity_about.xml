@@ -58,7 +58,5 @@
             android:text="反馈邮箱：cuit.team.laji@qq.com"
             />
 
-
-
     </LinearLayout>
 </ScrollView>
