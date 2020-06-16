@@ -46,7 +46,7 @@
             android:paddingLeft="16dp"
             android:paddingTop="10dp"
             android:singleLine="false"
-            android:text="开发人员：辣鸡王、鬼使李、傻其马"
+            android:text="开发人员：辣鸡王、鬼使李、傻奇马、氧氮磷、菜鸡王"
             />
         <TextView
             android:layout_width="match_parent"
