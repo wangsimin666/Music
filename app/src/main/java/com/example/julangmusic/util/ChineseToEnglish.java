@@ -9,8 +9,17 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
+/**
+ *
+ * @ClassName:     ChineseToEnglish
+ * @Description:   汉字首字母提取工具
+ * @Author:        ydl
+ * @date          2020/5/11
+ *
+ */
 public class ChineseToEnglish {
     private static final String TAG = "ChineseToEnglish";
+
     /**
      * 返回一个字的拼音
      */
@@ -27,20 +36,20 @@ public class ChineseToEnglish {
             }
         } catch (BadHanyuPinyinOutputFormatCombination e) {
             e.printStackTrace();
-            Log.e(TAG, "toPinYin: hanzi = "+hanzi );
-            Log.e(TAG, "toPinYin: pinyinArray.toString() = "+pinyinArray.toString() );
+            Log.e(TAG, "toPinYin: hanzi = " + hanzi);
+            Log.e(TAG, "toPinYin: pinyinArray.toString() = " + pinyinArray.toString());
         }
         //将获取到的拼音返回
         if (pinyinArray != null && pinyinArray.length > 0) {
             return pinyinArray[0];
         } else {
-            Log.e(TAG, "toPinYin: hanzi = "+hanzi );
+            Log.e(TAG, "toPinYin: hanzi = " + hanzi);
             return "#";
         }
     }
 
-    public static String StringToPinyinSpecial(String input){
-        if (input == null){
+    public static String StringToPinyinSpecial(String input) {
+        if (input == null) {
             return null;
         }
         String result = null;
@@ -56,9 +65,9 @@ public class ChineseToEnglish {
             result = result.substring(4, result.length());
         }
         //如果首字母不在[a,z]和[A,Z]内则首字母改为‘#’
-        if (!(result.toUpperCase().charAt(0) >= 'A' && result.toUpperCase().charAt(0) <= 'Z')){
+        if (!(result.toUpperCase().charAt(0) >= 'A' && result.toUpperCase().charAt(0) <= 'Z')) {
             StringBuilder builder = new StringBuilder(result);
-            builder.replace(0,1,"#");
+            builder.replace(0, 1, "#");
             result = builder.toString();
         }
         return result;
