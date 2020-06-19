@@ -19,6 +19,11 @@ import java.util.List;
 import static com.example.julangmusic.database.DatabaseHelper.ID_COLUMN;
 import static com.example.julangmusic.database.DatabaseHelper.MUSIC_ID_COLUMN;
 
+/**
+ * @author l
+ * @date 2020/5/5 - 8:36
+ * @function 数据库操作类
+ */
 public class DBManager {
 
     private static final String TAG = "DBManager";
@@ -27,8 +32,10 @@ public class DBManager {
     public static DBManager instance = null;
 
 
-    /* 因为getWritableDatabase内部调用了mContext.openOrCreateDatabase(mName, 0,mFactory);
+    /**
+     * 因为getWritableDatabase内部调用了mContext.openOrCreateDatabase(mName, 0,mFactory);
      * 需要一个context参数 ,所以要确保context已初始化,我们可以把实例化DBManager的步骤放在Activity的onCreate里
+     * @param context
      */
     public DBManager(Context context) {
         helper = new DatabaseHelper(context);
@@ -84,7 +91,7 @@ public class DBManager {
             db.endTransaction();
             if (cursor!=null){
                 cursor.close();
-        }
+            }
         }
         return musicInfoList;
     }
@@ -115,6 +122,7 @@ public class DBManager {
         return musicInfo;
     }
 
+    //获取指定歌单的所有音乐
     public List<MusicInfo> getAllMusicFromTable(int playList) {
         Log.d(TAG, "getAllMusicFromTable: ");
         List<Integer> idList = getMusicList(playList);
@@ -147,7 +155,6 @@ public class DBManager {
         }
         return playListInfos;
     }
-
 
     //创建歌单
     public void createPlaylist(String name) {
@@ -217,6 +224,7 @@ public class DBManager {
         return musicInfoList;
     }
 
+    //根据歌单id获取该歌单中所有歌曲的歌曲id
     public ArrayList<Integer> getMusicIdListByPlaylist(int playlistId){
         Cursor cursor = null;
         db.beginTransaction();
@@ -239,6 +247,7 @@ public class DBManager {
         return list;
     }
 
+    //根据歌单id获取该歌单中所有歌曲
     public List<MusicInfo> getMusicListByPlaylist(int playlistId){
         List<MusicInfo> musicInfoList = new ArrayList<>();
         Cursor cursor = null;
@@ -264,6 +273,7 @@ public class DBManager {
         return musicInfoList;
     }
 
+    //添加歌曲到数据库
     public void insertMusicListToMusicTable(List<MusicInfo> musicInfoList) {
         Log.d(TAG, "insertMusicListToMusicTable: ");
         for (MusicInfo musicInfo : musicInfoList) {
@@ -286,7 +296,6 @@ public class DBManager {
                 id = cursor.getInt(0) + 1;
             }
             values.put(ID_COLUMN, id);
-//			values.put("mylove",0);
             db.insert(DatabaseHelper.MUSIC_TABLE, null, values);
         } catch (Exception e) {
             e.printStackTrace();
@@ -332,7 +341,6 @@ public class DBManager {
         }
     }
 
-
     //删除数据库中所有的表
     public void deleteAllTable() {
         db.execSQL("PRAGMA foreign_keys=ON");
@@ -370,7 +378,7 @@ public class DBManager {
                 values.put(DatabaseHelper.LOVE_COLUMN, 0);
                 db.update(DatabaseHelper.MUSIC_TABLE, null, ID_COLUMN + " = ? ", new String[]{"" + id});
                 Log.d("DBManager", "我的喜爱设置为0,id：" + id + ",witchActivity" + witchActivity);
-            break;
+                break;
         }
     }
 
@@ -579,6 +587,7 @@ public class DBManager {
 
     }
 
+    //设置我的喜爱
     public void setMyLove(int id) {
         ContentValues values = new ContentValues();
         values.put(DatabaseHelper.LOVE_COLUMN, 1);
@@ -589,7 +598,6 @@ public class DBManager {
     public ContentValues musicInfoToContentValues(MusicInfo musicInfo) {
         ContentValues values = new ContentValues();
         try {
-//            values.put(DatabaseHelper.ID_COLUMN, musicInfo.getId());
             values.put(DatabaseHelper.NAME_COLUMN, musicInfo.getName());
             values.put(DatabaseHelper.SINGER_COLUMN, musicInfo.getSinger());
             values.put(DatabaseHelper.ALBUM_COLUMN, musicInfo.getAlbum());

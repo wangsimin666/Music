@@ -9,7 +9,13 @@ import androidx.annotation.Nullable;
 
 import com.example.julangmusic.util.Constant;
 
+/**
+ * @author l
+ * @date 2020/5/3 - 10:18
+ * @function Helper
+ */
 public class DatabaseHelper extends SQLiteOpenHelper {
+
     private static final String TAG = "DatabaseHelper";
 
     //音乐表
@@ -41,6 +47,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + PARENT_PATH_COLUMN + " text,"
             + LOVE_COLUMN + " integer,"
             + FIRST_LETTER_COLUMN + " text );";
+
     //创建歌单表
     private String createPlaylistTable = "create table if not exists " + PLAY_LIST_TABLE + " ("
             + ID_COLUMN +" integer PRIMARY KEY autoincrement,"
@@ -54,7 +61,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + "FOREIGN KEY(music_id) REFERENCES "+ MUSIC_TABLE + " (id) ON DELETE CASCADE) ;";
 
     /**
-     *
      * @ context   上下文
      * @ name      数据库名称
      * @ factory   游标工厂    默认为null
@@ -82,4 +88,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
+
 }
