@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
@@ -26,6 +24,11 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * created by 马宏彪
+ * 创建日期：2020-5-11
+ * 功能：本地音乐
+ */
 public class LocalMusicActivity extends PlayBarBaseActivity{
     private static final String TAG = "LocalMusicActivity";
     private Toolbar toolbar;
@@ -39,6 +42,7 @@ public class LocalMusicActivity extends PlayBarBaseActivity{
     private AlbumFragment albumFragment;
     private FolderFragment folderFragment;
 
+    //功能：子类需重写的方法，一般做必要的初始化工作
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +71,7 @@ public class LocalMusicActivity extends PlayBarBaseActivity{
     }
 
 
+    //初始化控件
     private void init(){
         addTapData();
         viewPager = findViewById(R.id.local_viewPager);

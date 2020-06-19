@@ -43,6 +43,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * created by 马宏彪
+ * 创建日期：2020-5-16
+ * 功能：单曲的fragment，就是本地音乐下面的四个界面选项用fragment放
+ */
 public class SingleFragment extends Fragment {
     private static final String TAG = "SingleFragment";
     private RelativeLayout playModeRl;
@@ -192,6 +197,7 @@ public class SingleFragment extends Fragment {
         initPlayMode();
     }
 
+    //初始化播放模式
     private void initPlayMode() {
         int playMode = MyMusicUtil.getIntShared(Constant.KEY_MODE);
         if (playMode == -1) {
@@ -250,6 +256,7 @@ public class SingleFragment extends Fragment {
 
     }
 
+    //进行删除操作
     public void deleteOperate(final View swipeView,final int position,final Context context){
         final MusicInfo musicInfo = musicInfoList.get(position);
         final int curId = musicInfo.getId();
@@ -302,6 +309,7 @@ public class SingleFragment extends Fragment {
         builder.show();
     }
 
+    //进行更新
     private void update(View swipeView, int position,MusicInfo musicInfo,boolean isDelete){
         if (isDelete){
             final int curId = musicInfo.getId();

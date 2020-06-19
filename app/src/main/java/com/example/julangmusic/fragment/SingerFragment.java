@@ -22,6 +22,11 @@ import com.example.julangmusic.util.MyMusicUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * created by 马宏彪
+ * 创建日期：2020-5-18
+ * 功能：歌手的fragment，就是本地音乐下面的四个界面选项用fragment放
+ */
 public class SingerFragment extends Fragment {
     private static final String TAG = "SingerFragment";
     private RecyclerView recyclerView;
