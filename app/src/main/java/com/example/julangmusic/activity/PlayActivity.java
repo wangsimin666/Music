@@ -43,6 +43,14 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Locale;
 
+/**
+ *
+ * @ClassName:     PlayActivity
+ * @Description:   播放音乐
+ * @Author:        王思敏
+ * @date          2020/5/10
+ *
+ */
 public class PlayActivity extends BaseActivity implements View.OnClickListener{
     private static final String TAG = "PlayActivity";
 

@@ -35,9 +35,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import java.util.List;
 
 /**
- * created by 王思敏
  *
- * 主界面
+ * @ClassName:     HomeActivity
+ * @Description:   主界面
+ * @Author:        王思敏
+ * @date          2020/5/3
+ *
  */
 public class HomeActivity extends PlayBarBaseActivity {
     private static final String TAG = "HomeActivity";
