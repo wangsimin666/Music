@@ -36,6 +36,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * created by 马宏彪
+ * 创建日期：2020-5-14
+ * 功能：扫描音乐
+ */
 public class ScanActivity extends BaseActivity{
     private static final String TAG = "ScanActivity";
     private DBManager dbManager;
@@ -56,6 +61,7 @@ public class ScanActivity extends BaseActivity{
     private String curMusicPath;
     private List<MusicInfo> musicInfoList;
 
+    //功能：子类需重写的方法，一般做必要的初始化工作
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,6 +128,7 @@ public class ScanActivity extends BaseActivity{
 
     }
 
+    //扫描完成，设置按钮为完成
     private void scanComplete(){
         scanBtn.setText("完成");
         scanning = false;
@@ -135,6 +142,7 @@ public class ScanActivity extends BaseActivity{
         });
         scanView.stop();
     }
+    //扫描手机本地音乐
     public void startScanLocalMusic() {
         new Thread() {
 
@@ -244,6 +252,7 @@ public class ScanActivity extends BaseActivity{
         }.start();
     }
 
+    //设置没有找到的歌手、歌名、专辑、文件夹为未知
     public static String replaseUnKnowe(String oldStr){
         try {
             if (oldStr != null){
