@@ -11,11 +11,6 @@ import com.baidu.mapapi.SDKInitializer;
 import com.example.julangmusic.service.MusicPlayerService;
 
 /**
- * Application类是在APP启动的时候就启动，启动在所有Activity之前
- *
- * 资源初始化
- */
-/**
  *
  * @ClassName:     MyApplication
  * @Description:  资源初始化
@@ -37,7 +32,6 @@ public class MyApplication extends Application {
         Intent startIntent = new Intent(MyApplication.this, MusicPlayerService.class);
         //开启服务
         startService(startIntent);
-        //initNightMode();
         //在使用SDK各组件之前初始化context信息，传入ApplicationContext
         SDKInitializer.initialize(this);
         //自4.3.0起，百度地图SDK所有接口均支持百度坐标和国测局坐标，用此方法设置您使用的坐标类型.
