@@ -11,7 +11,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * 文件操作的工具类
+ * created by 马宏彪
+ * 创建日期：2020-5-22
+ * 功能：文件操作的工具类
  */
 public class FileUtil {
 
