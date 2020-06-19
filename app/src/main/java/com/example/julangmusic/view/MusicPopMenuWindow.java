@@ -92,13 +92,13 @@ public class MusicPopMenuWindow extends PopupWindow {
         });
 
 
-        nameTv = (TextView)view.findViewById(R.id.popwin_name_tv);
-//        playLl = (LinearLayout) view.findViewById(R.id.popwin_play_ll);
-        addLl = (LinearLayout) view.findViewById(R.id.popwin_add_rl);
-        loveLl = (LinearLayout) view.findViewById(R.id.popwin_love_ll);
-//        ringLl = (LinearLayout) view.findViewById(R.id.popwin_ring_ll);
-        deleteLl = (LinearLayout) view.findViewById(R.id.popwin_delete_ll);
-        cancelLl = (LinearLayout) view.findViewById(R.id.popwin_cancel_ll);
+        nameTv = view.findViewById(R.id.popwin_name_tv);
+//        playLl = view.findViewById(R.id.popwin_play_ll);
+        addLl =  view.findViewById(R.id.popwin_add_rl);
+        loveLl =  view.findViewById(R.id.popwin_love_ll);
+//        ringLl = iew.findViewById(R.id.popwin_ring_ll);
+        deleteLl = view.findViewById(R.id.popwin_delete_ll);
+        cancelLl = view.findViewById(R.id.popwin_cancel_ll);
 
         nameTv.setText("歌曲： " + musicInfo.getName());
 
