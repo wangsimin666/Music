@@ -16,7 +16,12 @@ import com.example.julangmusic.util.UpdateUIThread;
 import java.io.File;
 
 /**
- * 创建广播接收者
+ *
+ * @ClassName:     PlayerManagerReceiver
+ * @Description:   广播接收者
+ * @Author:        王思敏
+ * @date          2020/5/15
+ *
  */
 public class PlayerManagerReceiver extends BroadcastReceiver {
     private static final String TAG = "PlayerManagerReceiver";
