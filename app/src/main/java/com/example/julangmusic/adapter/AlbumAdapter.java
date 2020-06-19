@@ -17,6 +17,14 @@ import com.example.julangmusic.entity.AlbumInfo;
 
 import java.util.List;
 
+/**
+ *
+ * @ClassName:     AlbumAdapter
+ * @Description:   专辑适配器
+ * @Author:        王惠
+ * @date          2020/5/16
+ *
+ */
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> {
     private static final String TAG = "AlbumAdapter";
     private List<AlbumInfo> albumInfoList;
