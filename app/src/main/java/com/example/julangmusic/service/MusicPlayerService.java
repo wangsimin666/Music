@@ -11,10 +11,12 @@ import androidx.annotation.Nullable;
 import com.example.julangmusic.receiver.PlayerManagerReceiver;
 
 /**
- * created by 王思敏
  *
- * 常驻在后台的播放服务
- * 在播放服务中绑定一个播放广播，我们在打开播放器的时候就启动这个播放服务
+ * @ClassName:     MusicPlayerService
+ * @Description:   常驻在后台的播放服务
+ * @Author:        王思敏
+ * @date          2020/5/18
+ *
  */
 public class MusicPlayerService extends Service {
     private static final String TAG = "MusicPlayerService";
