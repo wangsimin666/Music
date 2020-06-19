@@ -24,14 +24,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @ClassName:     MyMusicUtil
- * @Description:   一些播放器方法集合
- * @Author:        ydl
- * @date          2020/5/11
- *
- */
 public class MyMusicUtil {
 
     private static final String TAG = MyMusicUtil.class.getName();
