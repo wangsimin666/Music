@@ -18,6 +18,11 @@ import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.example.julangmusic.R;
 
+/**
+ * @author l
+ * @date 2020/5/20 - 9:51
+ * @function 定位
+ */
 public class LocationActivity extends BaseActivity implements View.OnClickListener {
 
     private MapView mMapView;
@@ -25,8 +30,8 @@ public class LocationActivity extends BaseActivity implements View.OnClickListen
     private LatLng mUser_latlng;
     private LocationClient mLocationClient;
     private MyLocationListener mMyLocationListener;
-    private LocationClientOption mClientOption;
 
+    //Activity生命周期开始方法
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,8 +88,7 @@ public class LocationActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void locationUser() {
-        MapStatusUpdate status2
-        = MapStatusUpdateFactory.newLatLng(mUser_latlng);
+        MapStatusUpdate status2 = MapStatusUpdateFactory.newLatLng(mUser_latlng);
         mBaiduMap.setMapStatus(status2);
     }
 

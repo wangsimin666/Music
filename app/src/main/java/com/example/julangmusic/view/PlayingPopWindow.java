@@ -25,19 +25,23 @@ import com.example.julangmusic.util.MyMusicUtil;
 
 import java.util.List;
 
+/**
+ * @author l
+ * @date 2020/5/28 - 9:55
+ * @function 播放列表
+ */
 public class PlayingPopWindow extends PopupWindow {
     private static final String TAG = "PlayingPopWindow";
     private View view;
     private Activity activity;
-    //    private ImageView playModeIv;
     private TextView countTv;
-    //    private TextView playModeTv;
     private RelativeLayout closeRv;
     private RecyclerView recyclerView;
     private Adapter adapter;
     private List<MusicInfo> musicInfoList;
     private DBManager dbManager;
 
+    //构造函数
     public PlayingPopWindow(Activity activity) {
         super(activity);
         this.activity = activity;
@@ -46,6 +50,7 @@ public class PlayingPopWindow extends PopupWindow {
         initView();
     }
 
+    //初始化界面
     private void initView(){
         this.view = LayoutInflater.from(activity).inflate(R.layout.playbar_menu_window, null);
         this.setContentView(this.view);
@@ -97,6 +102,7 @@ public class PlayingPopWindow extends PopupWindow {
     }
 
 
+    //添加适配器
     private class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         class ViewHolder extends RecyclerView.ViewHolder{

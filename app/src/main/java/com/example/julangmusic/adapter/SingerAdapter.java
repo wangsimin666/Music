@@ -17,6 +17,11 @@ import com.example.julangmusic.entity.SingerInfo;
 
 import java.util.List;
 
+/**
+ * created by 马宏彪
+ * 创建日期：2020-5-15
+ * 功能：歌手适配器
+ */
 public class SingerAdapter extends RecyclerView.Adapter<SingerAdapter.ViewHolder>{
     private static final String TAG = "SingerAdapter";
     private List<SingerInfo> singerInfoList;
