@@ -31,6 +31,7 @@ public class LocationActivity extends BaseActivity implements View.OnClickListen
     private LocationClient mLocationClient;
     private MyLocationListener mMyLocationListener;
 
+    //Activity生命周期开始方法
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
