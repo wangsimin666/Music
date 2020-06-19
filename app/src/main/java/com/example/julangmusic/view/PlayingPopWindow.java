@@ -83,13 +83,13 @@ public class PlayingPopWindow extends PopupWindow {
             }
         });
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.playing_list_rv);
+        recyclerView = view.findViewById(R.id.playing_list_rv);
         adapter = new Adapter();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
-        closeRv = (RelativeLayout) view.findViewById(R.id.playing_list_close_rv);
-        countTv = (TextView)view.findViewById(R.id.playing_list_count_tv);
+        closeRv = view.findViewById(R.id.playing_list_close_rv);
+        countTv = view.findViewById(R.id.playing_list_count_tv);
         countTv.setText("("+musicInfoList.size()+")");
 
         closeRv.setOnClickListener(new View.OnClickListener() {
@@ -112,9 +112,9 @@ public class PlayingPopWindow extends PopupWindow {
 
             public ViewHolder(View itemView) {
                 super(itemView);
-                this.contentLl = (LinearLayout) itemView.findViewById(R.id.palybar_list_item_ll);
-                this.nameTv = (TextView) itemView.findViewById(R.id.palybar_list_item_name_tv);
-                this.singerTv = (TextView) itemView.findViewById(R.id.palybar_list_item_singer_tv);
+                this.contentLl = itemView.findViewById(R.id.palybar_list_item_ll);
+                this.nameTv = itemView.findViewById(R.id.palybar_list_item_name_tv);
+                this.singerTv = itemView.findViewById(R.id.palybar_list_item_singer_tv);
             }
         }
 
