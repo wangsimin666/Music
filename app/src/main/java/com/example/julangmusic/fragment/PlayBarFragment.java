@@ -32,7 +32,12 @@ import com.example.julangmusic.util.MyMusicUtil;
 import com.example.julangmusic.view.PlayingPopWindow;
 
 /**
- * 播放显示条
+ *
+ * @ClassName:     PlayBarFragment
+ * @Description:   播放显示条
+ * @Author:        王思敏
+ * @date          2020/5/24
+ *
  */
 public class PlayBarFragment extends Fragment {
     private static final String TAG = "PlayBarFragment";
