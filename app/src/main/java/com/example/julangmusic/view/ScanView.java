@@ -20,6 +20,11 @@ import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.example.julangmusic.R;
 
+/**
+ * created by 马宏彪
+ * 创建日期：2020-5-20
+ * 功能：扫描的一些view
+ */
 public class ScanView extends View {
     private static final String TAG = "ScanView";
 
