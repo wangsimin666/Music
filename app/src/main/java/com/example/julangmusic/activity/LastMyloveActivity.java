@@ -45,6 +45,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * @author l
+ * @date 2020/5/15 - 11:13
+ * @function 我的喜爱
+ */
 public class LastMyloveActivity extends PlayBarBaseActivity{
     private static final String TAG = "LastMyloveActivity";
     private Toolbar toolbar;
@@ -59,6 +64,7 @@ public class LastMyloveActivity extends PlayBarBaseActivity{
     private String label;
     private UpdateReceiver mReceiver;
 
+    //Activity生命周期开始方法
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +84,7 @@ public class LastMyloveActivity extends PlayBarBaseActivity{
         register();
     }
 
+    //初始化
     private void init(){
         recyclerView = findViewById(R.id.last_mylove_recycler_view);
         recyclerViewAdapter = new RecyclerViewAdapter(LastMyloveActivity.this, musicInfoList);
@@ -88,6 +95,7 @@ public class LastMyloveActivity extends PlayBarBaseActivity{
                 LastMyloveActivity.this, DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(recyclerViewAdapter);
 
+        //点击函数监听
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onOpenMenuClick(int position) {
@@ -168,6 +176,7 @@ public class LastMyloveActivity extends PlayBarBaseActivity{
             }
         });
     }
+
 
     @Override
     protected void onResume() {
