@@ -22,7 +22,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * 主程序入口
+ *
+ * @ClassName:     MainActivity
+ * @Description:   主程序入口
+ * @Author:        王思敏
+ * @date          2020/5/3
+ *
  */
 public class MainActivity extends BaseActivity {
     private static final String TAG = "MainActivity";
@@ -47,6 +52,11 @@ public class MainActivity extends BaseActivity {
         initPermission();
     }
 
+    /**
+     * @author 王思敏
+     * @date 2020/5/3 - 10:26
+     * @function 检查用户授权
+     */
     private void initPermission() {
         //判断Andriod SDK版本号
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
@@ -72,9 +82,9 @@ public class MainActivity extends BaseActivity {
     }
 
     /**
-     * 定时器
-     *
-     * 设定停留在封面的时间，再跳转到下一个activity
+     * @author 王思敏
+     * @date 2020/5/3 - 10:50
+     * @function 定时器
      */
     private void checkSkip() {
         Timer timer = new Timer();
@@ -87,13 +97,25 @@ public class MainActivity extends BaseActivity {
         timer.schedule(task, 1000);
     }
 
-    //显示意图，跳转到HomeActivity
+    /**
+     * @author 王思敏
+     * @date 2020/5/3 - 10:40
+     * @function 跳转到HomeActivity
+     */
     private void startMusicActivity() {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         finish();
     }
 
+    /**
+     * @author 王思敏
+     * @date 2020/5/3 - 10:35
+     * @function 授权
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode){
