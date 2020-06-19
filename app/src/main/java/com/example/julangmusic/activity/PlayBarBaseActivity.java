@@ -9,7 +9,14 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.julangmusic.fragment.PlayBarFragment;
 import com.example.julangmusic.R;
 
-
+/**
+ *
+ * @ClassName:     PlayBarBaseActivity
+ * @Description:   播放显示条Activity
+ * @Author:        王思敏
+ * @date          2020/5/22
+ *
+ */
 public abstract class PlayBarBaseActivity extends BaseActivity{
 
     private PlayBarFragment playBarFragment;
