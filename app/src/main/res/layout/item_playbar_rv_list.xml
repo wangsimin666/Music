@@ -13,22 +13,22 @@
 
         <TextView
             android:id="@+id/palybar_list_item_name_tv"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:ellipsize="end"
             android:gravity="center_vertical"
             android:maxLines="1"
-            android:ellipsize="end"
-            android:paddingRight="40dp"
+            android:paddingRight="3dp"
             android:textColor="@color/grey900"
             android:textSize="14sp" />
         <TextView
             android:id="@+id/palybar_list_item_singer_tv"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:maxLines="1"
             android:ellipsize="end"
-            android:paddingRight="40dp"
+            android:paddingRight="3dp"
             android:textColor="@color/grey500"
             android:textSize="12sp" />
     </LinearLayout>
