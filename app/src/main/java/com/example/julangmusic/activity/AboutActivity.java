@@ -1,14 +1,7 @@
 package com.example.julangmusic.activity;
 
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
@@ -16,9 +9,15 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.julangmusic.R;
 
 
+/**
+ * created by 马宏彪
+ * 创建日期：2020-5-10
+ * 功能：关于信息
+ */
 public class AboutActivity extends BaseActivity{
     private Toolbar toolbar;
 
+    //功能：子类需重写的方法，一般做必要的初始化工作
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +25,7 @@ public class AboutActivity extends BaseActivity{
         init();
     }
 
+    //初始化控件
     private void init(){
         toolbar = findViewById(R.id.about_toolbar);
         setSupportActionBar(toolbar);
@@ -35,6 +35,7 @@ public class AboutActivity extends BaseActivity{
         }
     }
 
+    //重写的菜单响应事件
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
