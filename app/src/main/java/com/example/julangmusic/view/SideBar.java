@@ -14,6 +14,11 @@ import android.widget.TextView;
 
 import com.example.julangmusic.R;
 
+/**
+ * created by 马宏彪
+ * 创建日期：2020-5-22
+ * 功能：歌曲的右边索引
+ */
 public class SideBar extends View {
     private static final String TAG = "SideBar";
 
