@@ -372,38 +372,4 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener{
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
     }
-
-
-
-    /**
-     *联网在歌词迷上搜索歌词
-     *
-     * @param musicName 歌曲名称
-     * @param singer 歌手名
-     */
-//    public void seachLyric(String musicName,String singer){
-//        String urlLyric = "http://geci.me/api/lyric/:"+musicName+"/:"+singer;
-//        try {
-//            //建立连接--查找歌词
-//            //对字符串进行url编码
-//            String url = URLEncoder.encode(urlLyric,"utf-8");
-//            URL urlFinal = new URL(urlLyric);
-//            //实例化对象
-//            HttpURLConnection urlConnection = (HttpURLConnection) urlFinal.openConnection();
-//            urlConnection.connect();
-//
-//            //读取流--JSON歌曲列表
-//            InputStream inputStream = urlConnection.getInputStream();
-//            //将一个输入流转换为一个字符串
-//            String res = FileUtil.formatStreamToString(inputStream);
-//
-//            //字符串读取为JSON
-//            JSONObject json1 = new JSONObject(res);
-//            //获取歌词base64，并进行解码
-//            String base64 = json1.getString("rlc");
-//            final String lyric = Base64
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 }
