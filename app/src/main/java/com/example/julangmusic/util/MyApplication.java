@@ -15,6 +15,14 @@ import com.example.julangmusic.service.MusicPlayerService;
  *
  * 资源初始化
  */
+/**
+ *
+ * @ClassName:     MyApplication
+ * @Description:  资源初始化
+ * @Author:        王思敏
+ * @date          2020/5/3
+ *
+ */
 public class MyApplication extends Application {
     private static Context context;
 
