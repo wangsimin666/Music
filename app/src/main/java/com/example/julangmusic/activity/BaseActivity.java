@@ -9,9 +9,12 @@ import com.example.julangmusic.R;
 import com.example.julangmusic.util.MyMusicUtil;
 
 /**
- * created by 王思敏
  *
- * 音乐主题皮肤
+ * @ClassName:     BaseActivity
+ * @Description:   基本主题
+ * @Author:        王思敏
+ * @date          2020/5/4
+ *
  */
 public class BaseActivity extends AppCompatActivity {
 
