@@ -43,6 +43,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ *
+ * @ClassName:     ModelActivity
+ * @Description:   播放模式
+ * @Author:        王惠
+ * @date          2020/5/24
+ *
+ */
 public class ModelActivity extends PlayBarBaseActivity{
     private static final String TAG = "ModelActivity";
     public static final String KEY_TITLE = "key_title";
