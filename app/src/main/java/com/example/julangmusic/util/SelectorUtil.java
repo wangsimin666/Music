@@ -7,15 +7,6 @@ import android.graphics.drawable.StateListDrawable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-
-/**
- *
- * @ClassName:     SelectorUtil
- * @Description:   selector工具
- * @Author:        ydl
- * @date          2020/5/11
- *
- */
 public class SelectorUtil {
     private static final String TAG = "SelectorUtil";
 
