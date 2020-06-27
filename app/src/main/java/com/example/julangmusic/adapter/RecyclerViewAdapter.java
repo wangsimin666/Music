@@ -24,6 +24,11 @@ import com.example.julangmusic.util.MyMusicUtil;
 
 import java.util.List;
 
+/**
+ * created by 马宏彪
+ * 创建日期：2020-5-22
+ * 功能：主要完成字母排序
+ */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> implements SectionIndexer {
     private static final String TAG = "RecyclerViewAdapter";
     private List<MusicInfo> musicInfoList;
@@ -174,6 +179,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         });
     }
 
+    //更新音乐的list
     public void updateMusicInfoList(List<MusicInfo> musicInfoList) {
         this.musicInfoList.clear();
         this.musicInfoList.addAll(musicInfoList);
