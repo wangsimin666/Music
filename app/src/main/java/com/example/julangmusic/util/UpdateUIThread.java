@@ -8,7 +8,12 @@ import com.example.julangmusic.fragment.PlayBarFragment;
 import com.example.julangmusic.receiver.PlayerManagerReceiver;
 
 /**
- * 此线程只是用于循环发送广播，通知更改歌曲播放进度。
+ *
+ * @ClassName:     UpdateUIThread
+ * @Description:  此线程只是用于循环发送广播，通知更改歌曲播放进度
+ * @Author:        王思敏
+ * @date          2020/5/12
+ *
  */
 public class UpdateUIThread extends Thread{
     private static final String TAG = "UpdateUIThread";
