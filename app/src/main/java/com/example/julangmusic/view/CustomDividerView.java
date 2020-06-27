@@ -6,6 +6,14 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 
+/**
+ *
+ * @ClassName:     CustomDividerView
+ * @Description:  手机分辨率转换
+ * @Author:        王思敏
+ * @date          2020/5/5
+ *
+ */
 public class CustomDividerView extends View {
     private static final String TAG = "CustomDividerView";
     private Context mContext;
